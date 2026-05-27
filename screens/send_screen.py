@@ -1,4 +1,4 @@
-from tkinter import Label, Button
+from tkinter import Label, Button, Text
 from typing import override
 
 from constants import Constants
@@ -18,4 +18,8 @@ class SendScreen(AbstractScreen):
 
     @override
     def populate_screen(self):
-        pass
+        text_input_text_field = Text(self, font=self.font.app_default(), width=20, height=5)
+        text_input_text_field.place(relx=0.5, rely=0.5, anchor="center")
+
+        send_message_button = Button(self, text="Odoslať", font=self.font.app_default(), command=lambda: print(text_input_text_field.get("1.0", "end-1c")))
+        send_message_button.place(relx=0.5, rely=0.7, anchor="center")

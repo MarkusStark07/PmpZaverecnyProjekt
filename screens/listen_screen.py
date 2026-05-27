@@ -22,4 +22,5 @@ class ListenScreen(AbstractScreen):
 
     @override
     def populate_screen(self):
-        pass
+        received_text_label = Label(self, text="Text", font=self.font.app_default())
+        received_text_label.place(relx=0.5, rely=0.5, anchor="center")
