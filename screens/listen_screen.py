@@ -1,19 +1,20 @@
-from tkinter import Frame, Label, Button
+from tkinter import Label, Button
+from typing import override
 
+from constants import Constants
+from domain.font import Font
+from screens.abstract_screen import AbstractScreen
 from utils import Utils
 
 
-class ListenScreen(Frame):
-    def __init__(self, parent, controller):
-        super().__init__(parent)
+class ListenScreen(AbstractScreen):
+    @override
+    def populate_screen(self):
+        title_label = Label(self, text="Listen Screen", font=self.font.custom_size(Constants.defaultFontTitleSize))
+        title_label.place(relx=0.5, rely=0.1, anchor="center")
 
-        self.controller = controller
+        info_label = Label(self, text="This is the listen screens.", font=self.font.app_default())
+        info_label.place(relx=0.5, rely=0.3, anchor="center")
 
-        title_label = Label(self, text="Listen Screen")
-        title_label.pack(pady=20)
-
-        info_label = Label(self, text="This is the listen screens.")
-        info_label.pack(pady=20)
-
-        back_button = Button(self, text="Back", command=lambda: Utils.go_back(self))
-        back_button.pack(pady=20)
+        back_button = Button(self, text="Back", font=self.font.app_default(), command=lambda: Utils.go_back(self))
+        back_button.place(relx=0.5, rely=0.9, anchor="center")
