@@ -11,9 +11,9 @@ from utils import Utils
 class ConfigScreen(AbstractScreen):
 
     def __init__(self, parent, controller, font_object):
-        self.serial_interface_input_text_field = None
-        self.key_input_text_field = None
         self.serial_port_input_text_field = None
+        self.key_input_text_field = None
+        self.serial_speed_input_text_field = None
         super().__init__(parent, controller, font_object)
 
     @override
@@ -38,21 +38,21 @@ class ConfigScreen(AbstractScreen):
         self.key_input_text_field.insert("1.0", saved_encryption_key)
         self.key_input_text_field.place(relx=0.5, rely=0.3, anchor="center")
 
+        serial_speed_info_label = Label(self, text="Nastavenia serial rýchlosti prenosu", font=self.font.app_default())
+        serial_speed_info_label.place(relx=0.5, rely=0.4, anchor="center")
+
+        self.serial_speed_input_text_field = Text(self, font=self.font.app_default(), width=20, height=2)
+        saved_serial_speed = ConfigStorageService().get(Config.SERIAL_SPEED)
+        self.serial_speed_input_text_field.insert("1.0", saved_serial_speed)
+        self.serial_speed_input_text_field.place(relx=0.5, rely=0.5, anchor="center")
+
         serial_port_info_label = Label(self, text="Nastavenia serial portu", font=self.font.app_default())
-        serial_port_info_label.place(relx=0.5, rely=0.4, anchor="center")
+        serial_port_info_label.place(relx=0.5, rely=0.6, anchor="center")
 
         self.serial_port_input_text_field = Text(self, font=self.font.app_default(), width=20, height=2)
         saved_serial_port = ConfigStorageService().get(Config.SERIAL_PORT)
         self.serial_port_input_text_field.insert("1.0", saved_serial_port)
-        self.serial_port_input_text_field.place(relx=0.5, rely=0.5, anchor="center")
-
-        serial_interface_info_label = Label(self, text="Nastavenia serial interface", font=self.font.app_default())
-        serial_interface_info_label.place(relx=0.5, rely=0.6, anchor="center")
-
-        self.serial_interface_input_text_field = Text(self, font=self.font.app_default(), width=20, height=2)
-        saved_serial_interface = ConfigStorageService().get(Config.SERIAL_INTERFACE)
-        self.serial_interface_input_text_field.insert("1.0", saved_serial_interface)
-        self.serial_interface_input_text_field.place(relx=0.5, rely=0.7, anchor="center")
+        self.serial_port_input_text_field.place(relx=0.5, rely=0.7, anchor="center")
 
 
     def save_config(self):
@@ -60,10 +60,10 @@ class ConfigScreen(AbstractScreen):
         encryption_key = self.key_input_text_field.get("1.0", "end-1c")
         ConfigStorageService().save(Config.ENCRYPTION_KEY, encryption_key)
 
+        serial_speed = self.serial_speed_input_text_field.get("1.0", "end-1c")
+        ConfigStorageService().save(Config.SERIAL_SPEED, serial_speed)
+
         serial_port = self.serial_port_input_text_field.get("1.0", "end-1c")
         ConfigStorageService().save(Config.SERIAL_PORT, serial_port)
-
-        serial_interface = self.serial_interface_input_text_field.get("1.0", "end-1c")
-        ConfigStorageService().save(Config.SERIAL_INTERFACE, serial_interface)
 
         Utils.go_back_to_main_screen(self)

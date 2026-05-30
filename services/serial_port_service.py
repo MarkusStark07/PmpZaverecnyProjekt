@@ -5,16 +5,16 @@ from services.singleton_service import SingletonService
 from services.storage.config_storage_service import ConfigStorageService
 
 # Služba komunikácie na seriovom interfacom
-class SerialInterfaceService(SingletonService):
+class SerialPortService(SingletonService):
     # Inicializácia spojenia na základe nastavených parametrov uložený v configuračnom úložisku
     def __init__(self):
         # Kontrola či už má objekt vytvorené sériové spojenie
         if not hasattr(self, "serial_connection"):
-            interface = ConfigStorageService().get(Config.SERIAL_INTERFACE)
             port = ConfigStorageService().get(Config.SERIAL_PORT)
-            if interface == "" or port == "":
-                raise Exception("Sériový interface alebo port neboli nastavené!")
-            self.serial_connection = serial.Serial(str(interface), int(port), timeout=0.1)
+            speed = ConfigStorageService().get(Config.SERIAL_SPEED)
+            if port == "" or speed == "":
+                raise Exception("Sériový port alebo rýchlosť neboli nastavené!")
+            self.serial_connection = serial.Serial(str(port), int(speed), timeout=0.1)
 
     # čítanie dát zo sériového spojenia
     def read(self):
