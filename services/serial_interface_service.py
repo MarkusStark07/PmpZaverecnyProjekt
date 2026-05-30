@@ -12,6 +12,8 @@ class SerialInterfaceService(SingletonService):
         if not hasattr(self, "serial_connection"):
             interface = ConfigStorageService().get(Config.SERIAL_INTERFACE)
             port = ConfigStorageService().get(Config.SERIAL_PORT)
+            if interface == "" or port == "":
+                raise Exception("Sériový interface alebo port neboli nastavené!")
             self.serial_connection = serial.Serial(str(interface), int(port), timeout=0.1)
 
     # čítanie dát zo sériového spojenia

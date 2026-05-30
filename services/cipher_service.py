@@ -10,12 +10,15 @@ class CipherService:
         key = ConfigStorageService().get(Config.ENCRYPTION_KEY)
         # Validovanie klúča, ide o obyčajnú kontrolu či bol klúč uložený
         if key == "":
-            raise Exception("Encryption key is not set")
+            raise Exception("Šifrovací klúč nebol nastavený!")
         return key.encode("utf-8")
 
     # XOR šifra
     @staticmethod
     def xor_cipher(data):
+        if data == "":
+            raise Exception("Dáta na za/dešifrovanie neboli zadané!")
+
         encoded = []
 
         # získanie klúča a jeho dĺžky.

@@ -56,8 +56,6 @@ class ConfigScreen(AbstractScreen):
 
 
     def save_config(self):
-        #todo: validate input
-
         # Uloženie zadaných hodnôt do úložiska
         encryption_key = self.key_input_text_field.get("1.0", "end-1c")
         ConfigStorageService().save(Config.ENCRYPTION_KEY, encryption_key)
