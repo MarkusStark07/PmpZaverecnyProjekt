@@ -14,7 +14,7 @@ class AboutScreen(AbstractScreen):
 
     @override
     def info_label_widget(self):
-        return Label(self, text="Tento program je proof of concept šifrovanej komunikácie cez rádiové vlny. \n Aplikácia šifruje a dešifruje správy cez xor šifru používateľom zadaným klúčom.", font=self.font.app_default())
+        return Label(self, text="Tento program je proof of concept desktopovej aplikácie na šifrovanú komunikáciu cez rádiové vlny pomocou microbit mikro-kontrolera. \n Aplikácia šifruje a dešifruje správy cez xor šifru používateľom zadaným klúčom.", font=self.font.app_default())
 
     @override
     def action_button_widget(self):
