@@ -11,11 +11,11 @@ class SendScreen(AbstractScreen):
 
     @override
     def title_label_widget(self):
-        return Label(self, text="Send Screen", font=self.font.custom_size(Constants.defaultFontTitleSize))
+        return Label(self, text="Obrazovka odosielania", font=self.font.custom_size(Constants.defaultFontTitleSize))
 
     @override
     def info_label_widget(self):
-        return Label(self, text="This is the send screens.", font=self.font.app_default())
+        return Label(self, text="Táto obrazovka odosiela zadané správy", font=self.font.app_default())
 
     @override
     def action_button_widget(self):

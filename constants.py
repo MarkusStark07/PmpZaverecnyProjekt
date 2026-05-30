@@ -1,8 +1,8 @@
 # Konštanty aplikácie
 class Constants:
-    windowTitle = "My App"
+    windowTitle = "Microbit manager rádiových správ"
     windowSize = "600x400"
-    testMode = True
+    testMode = False
     defaultFont = "Arial"
     defaultFontSize = 12
     defaultFontTitleSize = defaultFontSize + 8

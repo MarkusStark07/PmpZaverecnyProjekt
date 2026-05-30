@@ -14,11 +14,11 @@ class ListenScreen(AbstractScreen):
 
     @override
     def title_label_widget(self):
-        return Label(self, text="Listen Screen", font=self.font.custom_size(Constants.defaultFontTitleSize))
+        return Label(self, text="Obrazovka počúvania", font=self.font.custom_size(Constants.defaultFontTitleSize))
 
     @override
     def info_label_widget(self):
-        return Label(self, text="This is the listen screens.", font=self.font.app_default())
+        return Label(self, text="Táto obrazovka zobrazuje príjmuté správy", font=self.font.app_default())
 
     @override
     def action_button_widget(self):
