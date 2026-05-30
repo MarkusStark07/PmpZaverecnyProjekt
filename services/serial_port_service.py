@@ -18,12 +18,12 @@ class SerialPortService(SingletonService):
 
     # čítanie dát zo sériového spojenia
     def read(self):
-        # kontrola či sú dostupné nejaké dáta na čítanie
-        if self.serial_connection.in_waiting > 0:
-            raw_data = self.serial_connection.readline()
-            # prevod do textovej formy
-            return raw_data.decode("utf-8")
-        return None
+        while True:
+            # kontrola či sú dostupné nejaké dáta na čítanie
+            if self.serial_connection.in_waiting > 0:
+                raw_data = self.serial_connection.readline()
+                # prevod do textovej formy
+                return raw_data.decode("utf-8")
 
     # písanie dát do sériového spojenia
     def write(self, data):
