@@ -22,12 +22,13 @@ class ListenScreen(AbstractScreen):
 
     @override
     def action_button_widget(self):
-        return Button(self, text="Späť", font=self.font.app_default(), command=lambda: Utils.go_back(self))
+        return Button(self, text="Späť", font=self.font.app_default(), command=lambda: Utils.go_back_to_main_screen(self))
 
     @override
     def populate_screen(self):
         self.received_text_label = Label(self, text="Počúvam...", font=self.font.app_default())
         self.received_text_label.place(relx=0.5, rely=0.5, anchor="center")
 
+        # Zobrazenie príjmutej správy
         received_message = MessageService().receive()
         self.received_text_label.config(text=received_message)
