@@ -4,6 +4,7 @@ from typing import override
 from constants import Constants
 from screens.about_screen import AboutScreen
 from screens.abstract_screen import AbstractScreen
+from screens.config_screen import ConfigScreen
 from screens.listen_screen import ListenScreen
 from screens.send_screen import SendScreen
 from utils import Utils
@@ -21,7 +22,7 @@ class MainScreen(AbstractScreen):
 
     @override
     def action_button_widget(self):
-        return Button(self, text="About", font=self.font.app_default(), command=lambda: Utils.show_screen(self.controller, AboutScreen, self.font))
+        return Button(self, text="O programe", font=self.font.app_default(), command=lambda: Utils.show_screen(self.controller, AboutScreen, self.font))
 
     @override
     def populate_screen(self):
@@ -31,3 +32,6 @@ class MainScreen(AbstractScreen):
 
         send_screen_button = Button(self, text="Odoslať", font=self.font.app_default(), command=lambda: Utils.show_screen(self.controller, SendScreen, self.font))
         send_screen_button.place(relx=0.6, rely=0.5, anchor="center")
+
+        config_screen_button = Button(self, text="Nastavenia", font=self.font.app_default(), command=lambda: Utils.show_screen(self.controller, ConfigScreen, self.font))
+        config_screen_button.place(relx=0.5, rely=0.6, anchor="center")

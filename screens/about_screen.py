@@ -17,7 +17,7 @@ class AboutScreen(AbstractScreen):
 
     @override
     def action_button_widget(self):
-        return Button(self, text="Back", font=self.font.app_default(), command=lambda: Utils.go_back(self))
+        return Button(self, text="Späť", font=self.font.app_default(), command=lambda: Utils.go_back(self))
 
     @override
     def populate_screen(self):

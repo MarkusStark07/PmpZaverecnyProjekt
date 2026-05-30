@@ -1,7 +1,7 @@
 from tkinter import *
 
 from constants import Constants
-from domain.font import Font
+from factory.font_factory import FontFactory
 from screens.main_screen import MainScreen
 from utils import Utils
 
@@ -15,7 +15,7 @@ class Main:
 
         # Zobrazí main screens
         self.current_screen = None
-        Utils.show_screen(self, MainScreen, Font(Constants.defaultFont, Constants.defaultFontSize))
+        Utils.show_screen(self, MainScreen, FontFactory(Constants.defaultFont, Constants.defaultFontSize))
 
     # Spustí aplikaciu
     def run(self):

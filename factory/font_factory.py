@@ -1,6 +1,6 @@
 import tkinter.font as tkFont
 
-class Font:
+class FontFactory:
     # Konštruktor objektu Font
     def __init__(self, family, size):
         self.family = family

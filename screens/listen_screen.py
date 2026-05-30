@@ -3,10 +3,14 @@ from typing import override
 
 from constants import Constants
 from screens.abstract_screen import AbstractScreen
+from services.message_service import MessageService
 from utils import Utils
 
 
 class ListenScreen(AbstractScreen):
+    def __init__(self, parent, controller, font_object):
+        self.received_text_label = None
+        super().__init__(parent, controller, font_object)
 
     @override
     def title_label_widget(self):
@@ -18,9 +22,12 @@ class ListenScreen(AbstractScreen):
 
     @override
     def action_button_widget(self):
-        return Button(self, text="Back", font=self.font.app_default(), command=lambda: Utils.go_back(self))
+        return Button(self, text="Späť", font=self.font.app_default(), command=lambda: Utils.go_back(self))
 
     @override
     def populate_screen(self):
-        received_text_label = Label(self, text="Text", font=self.font.app_default())
-        received_text_label.place(relx=0.5, rely=0.5, anchor="center")
+        self.received_text_label = Label(self, text="Počúvam...", font=self.font.app_default())
+        self.received_text_label.place(relx=0.5, rely=0.5, anchor="center")
+
+        received_message = MessageService().receive()
+        self.received_text_label.config(text=received_message)
