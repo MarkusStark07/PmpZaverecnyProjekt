@@ -1,10 +1,10 @@
 from tkinter import Label, Button
 from typing import override
 
-from constants import Constants
-from screens.abstract_screen import AbstractScreen
-from services.message_service import MessageService
-from utils import Utils
+from app.constants import Constants
+from app.screens.abstract_screen import AbstractScreen
+from app.services.message_service import MessageService
+from app.utils import Utils
 
 
 class ListenScreen(AbstractScreen):

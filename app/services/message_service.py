@@ -1,8 +1,8 @@
-from constants import Constants
-from domain.test import Test
-from services.cipher_service import CipherService
-from services.serial_port_service import SerialPortService
-from services.storage.test_storage_service import TestStorageService
+from app.constants import Constants
+from app.domain.test import Test
+from app.services.cipher_service import CipherService
+from app.services.serial_port_service import SerialPortService
+from app.services.storage.test_storage_service import TestStorageService
 
 # Služba poskytujúca rozhranie na komunikáciu medzi hardwarovou službou, šifrovacou službou a grafickým rozhraním
 class MessageService:

@@ -1,13 +1,13 @@
 from tkinter import Label, Button
 from typing import override
 
-from constants import Constants
-from screens.about_screen import AboutScreen
-from screens.abstract_screen import AbstractScreen
-from screens.config_screen import ConfigScreen
-from screens.listen_screen import ListenScreen
-from screens.send_screen import SendScreen
-from utils import Utils
+from app.constants import Constants
+from app.screens.about_screen import AboutScreen
+from app.screens.abstract_screen import AbstractScreen
+from app.screens.config_screen import ConfigScreen
+from app.screens.listen_screen import ListenScreen
+from app.screens.send_screen import SendScreen
+from app.utils import Utils
 
 
 class MainScreen(AbstractScreen):

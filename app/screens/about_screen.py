@@ -1,9 +1,9 @@
 from tkinter import Label, Button
 from typing import override
 
-from constants import Constants
-from screens.abstract_screen import AbstractScreen
-from utils import Utils
+from app.constants import Constants
+from app.screens.abstract_screen import AbstractScreen
+from app.utils import Utils
 
 
 class AboutScreen(AbstractScreen):

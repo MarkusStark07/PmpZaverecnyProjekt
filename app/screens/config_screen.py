@@ -1,11 +1,11 @@
 from tkinter import Label, Button, Text
 from typing import override
 
-from constants import Constants
-from domain.config import Config
-from screens.abstract_screen import AbstractScreen
-from services.storage.config_storage_service import ConfigStorageService
-from utils import Utils
+from app.constants import Constants
+from app.domain.config import Config
+from app.screens.abstract_screen import AbstractScreen
+from app.services.storage.config_storage_service import ConfigStorageService
+from app.utils import Utils
 
 
 class ConfigScreen(AbstractScreen):

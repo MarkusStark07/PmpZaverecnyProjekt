@@ -1,8 +1,8 @@
 import serial
 
-from domain.config import Config
-from services.singleton_service import SingletonService
-from services.storage.config_storage_service import ConfigStorageService
+from app.domain.config import Config
+from app.services.singleton_service import SingletonService
+from app.services.storage.config_storage_service import ConfigStorageService
 
 # Služba komunikácie na seriovom interfacom
 class SerialPortService(SingletonService):

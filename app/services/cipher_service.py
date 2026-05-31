@@ -1,5 +1,5 @@
-from domain.config import Config
-from services.storage.config_storage_service import ConfigStorageService
+from app.domain.config import Config
+from app.services.storage.config_storage_service import ConfigStorageService
 
 # Služba šifrovania a dešifrovania správ pomocou XOR šifry
 class CipherService:

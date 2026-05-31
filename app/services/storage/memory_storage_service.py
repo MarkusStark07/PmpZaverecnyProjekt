@@ -1,6 +1,6 @@
 from typing import override
 
-from services.storage.abstract_storage_service import AbstractStorageService
+from app.services.storage.abstract_storage_service import AbstractStorageService
 
 # Implementácia dátového úložíska ktoré uchováva dáta v pamäti
 # Úložísko funguje na princípe dictionary {Klúč: uloženéDáta}
